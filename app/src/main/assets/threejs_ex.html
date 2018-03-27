@@ -3,21 +3,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/91/three.min.js"></script>
 </head>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+</style>
 <body>
-<h1>Instabug Screenshot!!!</h1>
 <script>
     var canvas = document.createElement("canvas");
-    canvas.style.border = "2px solid #ff00ff";
     document.body.appendChild(canvas);
 
-    var width = 200;
-    var height = 300;
-
+    var width = window.innerWidth;
+    var height = window.innerHeight;
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(75, width/height, 1, 10000);
+
     var renderer = new THREE.WebGLRenderer({canvas: canvas});
-    renderer.setSize(width, height);
     renderer.setClearColor(0xffff00);
+    renderer.setSize(width, height);
 
     var geometry = new THREE.BoxGeometry(200, 200, 200, 10, 10, 10);
     var material = new THREE.MeshNormalMaterial();
